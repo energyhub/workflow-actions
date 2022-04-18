@@ -1,31 +1,8 @@
-# Pull Request Title Validation Action
-The GitHub workflow action for validating of PR titles with regular expression
+# The GitHub Workflow Actions
 
-## Usage
+The repository contains custom GitHub workflow actions with custom code that interacts with any other repository.
 
-See [action.yml](./action.yml)
-
-```yaml
-steps:
-- uses: energyhub/pr-title-validation-action@v1.0
-  with:
-    regex: '^[A-Z]+-\d+\s:\s.*?$' # Regex the title should match.
-    github_token: ${{ github.token }} # Default: ${{ github.token }}
-```
-
-### Note:
-Ensure to add `types` to the Pull requests webhook event as by default workflows are triggered only
-for `opened`, `synchronize`, or `reopened` pull request events. Read more about
-it [here](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#pull_request).
-```yaml
-on:
-  pull_request:
-    types: [opened, edited, synchronize, reopened]
-```
-
-Triggering the action on anything other than `pull_request` will cause a failure.
-
-## Installing node modules
+## Installing node modules for actions using Node.js
 
 The actions toolkit is a collection of Node.js packages that allow you to quickly build JavaScript actions with more consistency.
 
@@ -35,22 +12,14 @@ The toolkit also offers a @actions/github package that returns an authenticated 
 
 The toolkit offers more than the core and github packages. For more information, see the actions/toolkit repository.
 
-At your terminal, install the actions toolkit core and github packages.
+At your terminal, install dependencies
 
 ```shell
-npm install @actions/core
-npm install @actions/github
+npm install
 ```
 Now you should see a node_modules directory with the modules you just installed and a package-lock.json file with the installed module dependencies and the versions of each installed module.
 
-## Compiling javascript file
 
-Install vercel/ncc by running this command in your terminal.
-```shell
-npm i -g @vercel/ncc
-```
+## List of Workflow Actions
 
-Compile your index.js file.
-```shell
-ncc build index.js --license licenses.txt
-```
+* [Validating of PR titles with regular expression](./pr-title-validation/README.md)
