@@ -1,0 +1,23 @@
+{
+  "name": "workflow-actions",
+  "version": "1.0.0",
+  "description": "The GH workflow actions",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/energyhub/workflow-actions.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/energyhub/workflow-actions/issues"
+  },
+  "homepage": "https://github.com/energyhub/workflow-actions#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^1.1.0"
+  },
+  "devDependencies": {}
+}
