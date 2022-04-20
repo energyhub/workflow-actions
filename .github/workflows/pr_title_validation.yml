@@ -1,0 +1,14 @@
+name: PR Title Validation
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+jobs:
+  Validator-PR-Title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: energyhub/workflow-actions/pr-title-validation@v1.0
+        with:
+          regex: '^[A-Z]+-\d+\s:\s.*?$'
