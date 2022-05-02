@@ -4,7 +4,7 @@ The GitHub workflow action for validating of PR titles with regular expression
 ## Usage
 
 To start using this action copy the following YAML into a new file at `.github/workflows/main.yml`, 
-and point the action reference `energyhub/workflow-actions/pr-title-validation@v1.0` in the `uses` section
+and point the action reference `energyhub/workflow-actions/pr-title-validation@v2.0` in the `uses` section
 
 ```yaml
 name: PR Title Validation
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - uses: energyhub/workflow-actions/pr-title-validation@v1.0
+      - uses: energyhub/workflow-actions/pr-title-validation@v2.0
         with:
           regex: '^[A-Z]+-\d+\s:\s.*?$'
 ```
