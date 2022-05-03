@@ -4,7 +4,7 @@ inputs:
   ignored_prefixes:
     description: 'Comma separated list of prefixes to ignore. eg: rc,release-candidate,hotfix'
     required: false
-    default: ''
+    default: 'rc,hotfix'
   min_length:
     description: 'Minimum length of branch name'
     required: false
