@@ -23,3 +23,4 @@ Now you should see a node_modules directory with the modules you just installed 
 ## List of Workflow Actions
 
 * [Validating of PR titles with regular expression](./pr-title-validation/README.md)
+* [Validating branch names with regular expression](./branch-name-validation/README.md)
