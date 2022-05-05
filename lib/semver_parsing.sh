@@ -18,16 +18,16 @@ check_semver() {
 # semver_lte 2.5.7 2.5.8 = true
 semver_lte() {
     if [[  "${1}" = "$(echo -e "${1}\n${2}" | sort -V | head -n1)" ]]; then
-      echo true
+      return 1
     else
-      echo false
+      return 0
     fi
 }
 
 # shared function that returns whether the first argument is less than the second argument in Semantic Versioning
 semver_lt() {
     if [[ "$1" = "$2" ]]; then
-      echo false
+      return 0
     else
       semver_lte "${1}" "${2}"
     fi
