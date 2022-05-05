@@ -1,0 +1,14 @@
+name: Enforce Version Update
+on:
+  pull_request:
+    types: [synchronize, opened, reopened, ready_for_review, review_requested]
+    branches: # against branches
+      - main # there is no way to dynamically get the repository's default branch so hardcode it
+jobs:
+  Enforce-Version-Update:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' || ! github.event.pull_request.draft }}
+    steps:
+      - uses: ./enforce-version-update
+        with:
+          new-version: 0.0.1

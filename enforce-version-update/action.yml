@@ -1,0 +1,26 @@
+name: "Enforce Version Update"
+description: |
+  Take two versions, ensure they are properly formatted according to Semantic versioning and that 
+  the newer version is higher than the older version
+inputs:
+  main-version:
+    description: 'The current version'
+    required: true
+    default: "0.0.0"
+  new-version:
+    description: 'The new version'
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: ensure-semantic-versions
+      shell: bash
+      run: |
+        source lib/semver_parsing.sh
+        check_semver ${{ inputs.main-version }} || exit 1
+        check_semver ${{ inputs.new-version }} || exit 1
+    - id: enforce-version-update
+      shell: bash
+      run: |
+        source lib/semver_parsing.sh
+        semver_lt ${{ inputs.main-version }} ${{ inputs.new-version }} || exit 1
