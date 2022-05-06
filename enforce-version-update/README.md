@@ -5,7 +5,7 @@ The GitHub workflow action for enforcing version has been updated.
 
 To start using this action copy the following YAML into a new file at 
 `.github/workflows/enforce_version_update.yml`,
-and point the action reference `energyhub/workflow-actions/enforce-version-update@v2.0` in the 
+and point the action reference `energyhub/workflow-actions/enforce-version-update@v2.1.0` in the 
 `uses` section.
 
 ```yaml
@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - uses: energyhub/workflow-actions/enforce-version-update@v2.0
+      - uses: energyhub/workflow-actions/enforce-version-update@v2.1.0
         with:
           new-version: <extract new version>
           main-version: <extract old version>
