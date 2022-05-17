@@ -13,16 +13,19 @@ inputs:
 runs:
   using: composite
   steps:
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
     - run: |
-        echo "${{ github.action_path }}" >> $GITHUB_PATH
         source semver_parsing.sh
+        check_semver ${{ inputs.main-version }} || exit 1
       shell: bash
     - id: ensure-semantic-versions
       shell: bash
       run: |
-        check_semver ${{ inputs.main-version }} || exit 1
+        source semver_parsing.sh
         check_semver ${{ inputs.new-version }} || exit 1
     - id: enforce-version-update
       shell: bash
       run: |
+        source semver_parsing.sh
         semver_lt ${{ inputs.main-version }} ${{ inputs.new-version }} || exit 1
