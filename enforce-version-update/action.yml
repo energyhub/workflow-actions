@@ -16,11 +16,11 @@ runs:
     - id: ensure-semantic-versions
       shell: bash
       run: |
-        source lib/semver_parsing.sh
+        source semver_parsing.sh
         check_semver ${{ inputs.main-version }} || exit 1
         check_semver ${{ inputs.new-version }} || exit 1
     - id: enforce-version-update
       shell: bash
       run: |
-        source lib/semver_parsing.sh
+        source semver_parsing.sh
         semver_lt ${{ inputs.main-version }} ${{ inputs.new-version }} || exit 1
