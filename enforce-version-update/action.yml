@@ -17,15 +17,13 @@ runs:
       shell: bash
     - run: |
         source semver_parsing.sh
-        check_semver ${{ inputs.main-version }} || exit 1
       shell: bash
     - id: ensure-semantic-versions
       shell: bash
       run: |
-        source semver_parsing.sh
+        check_semver ${{ inputs.main-version }} || exit 1
         check_semver ${{ inputs.new-version }} || exit 1
     - id: enforce-version-update
       shell: bash
       run: |
-        source semver_parsing.sh
         semver_lt ${{ inputs.main-version }} ${{ inputs.new-version }} || exit 1
