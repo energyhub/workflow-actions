@@ -1,0 +1,25 @@
+name: "Increment Version"
+description: Given a version and release type, increment version
+inputs:
+  current-version:
+    description: 'The current semantic version you want to increment'
+    default: '0.0.0'
+    required: true
+  version-fragment:
+    description: 'The versions fragment you want to increment. possible options are [ major | feature | bug | alpha | beta | rc ]'
+    default: 'feature'
+    required: true
+outputs:
+  next-version:
+    description: 'The incremented version'
+    value: ${{ steps.increment-feature-version.next-version }}
+runs:
+  using: composite
+  steps:
+    - id: increment-feature-version
+      shell: bash
+      run: |
+        source increment_version.sh
+        increment_version ${{ inputs.current-version }} ${{ inputs.version-fragment }} || exit 1
+        
+      
