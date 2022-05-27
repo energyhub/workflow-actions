@@ -20,7 +20,7 @@ jobs:
 
       - uses: energyhub/workflow-actions/pr-title-validation@v2.3
         with:
-          ignored_prefixes: 'dependabot'
+          ignored_branch_prefixes: 'dependabot'
           regex: '^[A-Z]+-\d+\s:\s.*?$'
 ```
 

@@ -5,7 +5,7 @@ inputs:
     description: 'Regex to validate the pull request title'
     required: false
     default: '^[A-Z]+-\d+\s:\s.*?$'
-  ignored_prefixes:
+  ignored_branch_prefixes:
     description: 'Comma separated list of prefixes in a branch name to ignore. eg: dependabot'
     required: false
     default: 'dependabot'
